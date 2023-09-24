@@ -1,0 +1,238 @@
+@use "catppuccin_mocha" as colors;
+
+$fg: rgba(
+    $color: colors.$foreground,
+    $alpha: 0.9,
+);
+$bg: rgba(
+    $color: colors.$background-darker,
+    $alpha: 0.7,
+);
+$accent: colors.$blue;
+$border-color: rgba(
+    $color: colors.$comment,
+    $alpha: 0.5,
+);
+/*
+@keyframes rainbow {
+    0%   {color: colors.$red;}
+    16%  {color: colors.$orange;}
+    33%  {color: colors.$yellow;}
+    50% {color: colors.$green;}
+    66% {color: colors.$cyan;}
+    83% {color: colors.$purple;}
+    100% {color: colors.$pink;}
+}
+*/
+* {
+    font-size: 16px;
+    font-family: "JetBrainsMono NFM";
+}
+
+window {
+    background-color: $bg;
+}
+
+@mixin default-settings(
+    $color: colors.$comment,
+    $border-side: none,
+    $border-color: $border-color,
+    $border-size: 1px
+) {
+    padding: 4px 15px;
+    color: $color;
+
+    @if $border-side == left {
+        border-left: $border-size solid $border-color;
+    } @else if $border-side == right {
+        border-right: $border-size solid $border-color;
+    } @else if not $border-side {
+        @error "Unknown direction #{$border-side}.";
+    }
+}
+
+#custom-logo {
+    @include default-settings($color: $accent, $border-side: "right");
+    /*
+    animation-name: rainbow;
+    animation-duration: 60s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    */
+}
+
+#tags {
+    @include default-settings($border-side: "right");
+
+    button {
+        color: transparent;
+        padding: 0px 5px;
+
+        &.occupied {
+            color: colors.$comment;
+        }
+
+        &:hover {
+            color: $fg;
+            background-color: transparent;
+
+            border-color: transparent;
+            border-radius: 0px;
+            box-shadow: none;
+
+            border-bottom: 1px solid $accent;
+
+            transition: ease-in 300ms;
+        }
+
+        &.focused {
+            color: $accent;
+        }
+
+        &.urgent {
+            color: colors.$red;
+        }
+    }
+}
+
+#custom-task-id {
+    @include default-settings($color: colors.$comment);
+}
+
+#custom-task-due {
+    @include default-settings($color: colors.$comment);
+
+    &.distant-due {
+        color: colors.$lavender;
+    }
+
+    &.upcoming-due {
+        color: colors.$yellow;
+    }
+
+    &.close-due {
+        color: colors.$orange;
+    }
+
+    &.overdue {
+        color: colors.$red;
+    }
+}
+
+#custom-task-desc {
+    @include default-settings($color: $accent);
+
+    &.started {
+        color: colors.$green;
+    }
+}
+
+#clock {
+    @include default-settings($color: $fg);
+
+    &.day {
+        border-left: 1px solid $border-color;
+    }
+
+    &.date {
+        border-right: 1px solid $border-color;
+    }
+}
+
+#tray {
+    @include default-settings($border-side: "left");
+}
+
+#pulseaudio {
+    @include default-settings($border-side: "left");
+
+    &.mild {
+        color: colors.$yellow;
+    }
+
+    &.heavy {
+        color: colors.$orange;
+    }
+}
+
+#network {
+    @include default-settings();
+
+    &.disconnected {
+        color: colors.$yellow;
+    }
+
+    &disabled {
+        color: colors.$orange;
+    }
+}
+
+#backlight {
+    @include default-settings($border-side: "left");
+
+    &.mild {
+        color: colors.$yellow;
+    }
+
+    &.heavy {
+        color: colors.$orange;
+    }
+}
+
+#battery {
+    @include default-settings($border-side: "left");
+
+    &.discharging {
+        &.state-good {
+            color: colors.$yellow;
+        }
+        &.state-warning {
+            color: colors.$orange;
+        }
+        &.state-critical {
+            color: colors.$red;
+        }
+    }
+
+    &.charging {
+        color: colors.$green;
+    }
+}
+
+#cpu {
+    @include default-settings();
+
+    &.mild {
+        color: colors.$yellow;
+    }
+
+    &.heavy {
+        color: colors.$orange;
+    }
+}
+
+#memory {
+    @include default-settings($border-side: "left");
+
+    &.mild {
+        color: colors.$yellow;
+    }
+
+    &.heavy {
+        color: colors.$orange;
+    }
+}
+
+#disk {
+    &.ssd {
+        @include default-settings($border-side: "left");
+    }
+
+    &.hdd {
+        @include default-settings($border-side: "left");
+    }
+}
+
+#custom-game-mode {
+    @include default-settings();
+}

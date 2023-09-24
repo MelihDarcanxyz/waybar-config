@@ -1,0 +1,289 @@
+[
+	{
+		"layer": "bottom",
+		"output": null,
+		"position": "top",
+		"height": null,
+		"width": null,
+		"modules-left": [
+			"custom/logo",
+			"river/tags",
+			"custom/task-id",
+			"custom/task-due",
+			"custom/task-desc"
+		],
+		"modules-center": [
+			"clock#day",
+			"clock#time",
+			"clock#date"
+		],
+		"modules-right": [
+			"network",
+			//"mpd", //TODO
+			"idle-inhibitor", //TODO
+			"backlight",
+			"pulseaudio",
+			"tray"
+		],
+		"river/tags": {
+			"num-tags": 4,
+			"tag-labels": [
+				"",
+				"󰖟",
+				"",
+				"",
+			],
+			"disable-click": false
+		},
+		"custom/logo": {
+			"format": "<span size='15pt'></span>",
+			"min-length": 1,
+			"max-length": 1
+		},
+		"custom/task-id": {
+			"exec": "$HOME/.scripts/waybar/task-id-rs",
+			"on-click": "$HOME/.scripts/waybar/task-toggle",
+			"on-click-right": "$HOME/.scripts/waybar/task-done",
+			"signal": 12,
+			"min-length": 3,
+			"max-length": 3
+		},
+		"custom/task-due": {
+			"exec": "$HOME/.scripts/waybar/task-due",
+			"on-click": "$HOME/.scripts/waybar/task-toggle",
+			"on-click-right": "$HOME/.scripts/waybar/task-done",
+			"signal": 12,
+			"min-length": 4,
+			"max-length": 4,
+			"return-type": "json",
+			"format": "{}",
+			"states": {
+				"no-due": 0,
+				"distant-due": 1,
+				"upcoming-due": 2,
+				"close-due": 58,
+				"overdue": 100
+			}
+		},
+		"custom/task-desc": {
+			"exec": "$HOME/.scripts/waybar/task-desc",
+			"on-click": "$HOME/.scripts/waybar/task-toggle",
+			"on-click-right": "$HOME/.scripts/waybar/task-done",
+			"signal": 12,
+			"min-length": 35,
+			"max-length": 35,
+			"align": 0,
+			"return-type": "json",
+			"format": "{}"
+		},
+		"clock#day": {
+			"format": "{:%a}",
+			"min-length": 6,
+			"max-length": 6
+		},
+		"clock#time": {
+			"format": "{:%H:%M}",
+			"min-length": 6,
+			"max-length": 6
+		},
+		"clock#date": {
+			"format": "{:%d %b}",
+			"min-length": 6,
+			"max-length": 6
+		},
+		"network": {
+			"format": "{icon} {essid}",
+			"format-ethernet": "󰈀 {essid}",
+			"format-disconnected": "󰤭",
+			"format-disabled": "󰤮",
+			"format-icons": [
+				"󰤟",
+				"󰤢",
+				"󰤥",
+				"󰤨"
+			],
+			"min-length": 7,
+			"max-length": 7
+		},
+		"mpd": {
+			"server": "0.0.0.0",
+			"port": "6600"
+		},
+		"idle_inhibitor": {
+			"format": "{icon}",
+			"format-icons": {
+				"activated": "",
+				"deactivated": ""
+			},
+			"timeout": 30.0
+		},
+		"backlight": {
+			"format": "{icon} {percent}",
+			"min-length": 5,
+			"max-length": 5,
+			"format-icons": [
+				"󰃞",
+				"󰃝",
+				"󰃟",
+				"󰃠"
+			],
+			"states": {
+				"mild": 40,
+				"heavy": 80
+			}
+		},
+		"pulseaudio": {
+			"format": "{icon} {volume}",
+			"format-bluetooth": "󰂰 {volume}",
+			"format-muted": "󰝟 M",
+			"format-source": "󰍬 {volume}",
+			"format-source-muted:": "󰍭 M",
+			"format-icons": {
+				"default": [
+					"",
+					"",
+					""
+				]
+			},
+			"min-length": 5,
+			"max-length": 5,
+			"scroll-step": 1,
+			"on-click": "pavucontrol",
+			"tooltip": false,
+			"max-volume": 100,
+			"states": {
+				"mild": 80,
+				"heavy": 101
+			}
+		},
+		"tray": {
+			"icon-size": 18,
+			"spacing": 5
+		},
+		"margin": null,
+		"margin-top": null,
+		"margin-left": null,
+		"margin-bottom": null,
+		"margin-right": null,
+		"spacing": null,
+		"name": "topbar",
+		"mode": null,
+		"modifier-reset": null,
+		"exclusive": true,
+		"fixed-center": true,
+		"passthrough": false,
+		"gtk-layer-shell": true,
+		"ipc": false,
+		"id": null
+	},
+	{
+		"layer": "bottom",
+		"output": null,
+		"position": "bottom",
+		"height": null,
+		"width": null,
+		"modules-left": [
+			"custom/game-mode"
+		],
+		"modules-center": [],
+		"modules-right": [
+			"cpu",
+			"memory",
+			//"temperature", TODO
+			"disk#ssd",
+			"disk#hdd",
+			"battery"
+		],
+		"custom/game-mode": {
+			"exec": "$HOME/.scripts/waybar/game-mode",
+			"signal": 12,
+			"min-length": 1,
+			"max-length": 1
+		},
+		"battery": {
+			"states": {
+				"state-good": 70,
+				"state-warning": 40,
+				"state-critical": 20
+			},
+			"format": "{icon} {capacity}",
+			"format-time": "{H} s {M} dk",
+			"format-icons": {
+				"default": [
+				    "󰂎",
+					"󰁺",
+					"󰁻",
+					"󰁼",
+					"󰁽",
+					"󰁾",
+					"󰁿",
+					"󰂀",
+					"󰂁",
+					"󰂂",
+					"󰁹",
+				],
+				"charging": [
+					"󰢟",
+					"󰢜",
+					"󰂆",
+					"󰂇",
+					"󰂈",
+					"󰢝",
+					"󰂉",
+					"󰢞",
+					"󰂊",
+					"󰂋",
+					"󰂅"
+				]
+			},
+			"max-length": 5,
+			"min-length": 5
+		},
+		"cpu": {
+			"format": " {usage}",
+			"states": {
+				"mild": 40,
+				"heavy": 80
+			},
+			"max-length": 5,
+			"min-length": 5
+		},
+		"disk#ssd": {
+			"path": "/",
+			"format": "󰨣 {free}",
+			"min-length": 10,
+			"max-length": 10
+		},
+		"disk#hdd": {
+			"path": "/run/media/$(whoami)/stuff",
+			"format": "󰋊 {free}",
+			"min-length": 10,
+			"max-length": 10
+		},
+		"memory": {
+			"format": " {used}",
+			"max-length": 7,
+			"min-length": 7,
+			"states": {
+				"mild": 40,
+				"heavy": 80
+			}
+		},
+		"temperature": {},
+		"margin": null,
+		"margin-top": null,
+		"margin-left": null,
+		"margin-bottom": null,
+		"margin-right": null,
+		"spacing": null,
+		"name": "botbar",
+		"mode": null,
+		"modifier-reset": null,
+		"exclusive": true,
+		"fixed-center": true,
+		"passthrough": false,
+		"gtk-layer-shell": true,
+		"ipc": false,
+		"id": null
+	}
+]

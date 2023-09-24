@@ -1,0 +1,198 @@
+/*
+@keyframes rainbow {
+    0%   {color: colors.$red;}
+    16%  {color: colors.$orange;}
+    33%  {color: colors.$yellow;}
+    50% {color: colors.$green;}
+    66% {color: colors.$cyan;}
+    83% {color: colors.$purple;}
+    100% {color: colors.$pink;}
+}
+*/
+* {
+  font-size: 16px;
+  font-family: "JetBrainsMono NFM";
+}
+
+window {
+  background-color: rgba(17, 17, 27, 0.7);
+}
+
+#custom-logo {
+  padding: 4px 15px;
+  color: #89b4fa;
+  border-right: 1px solid rgba(127, 132, 156, 0.5);
+  /*
+  animation-name: rainbow;
+  animation-duration: 60s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  */
+}
+
+#tags {
+  padding: 4px 15px;
+  color: #7f849c;
+  border-right: 1px solid rgba(127, 132, 156, 0.5);
+}
+#tags button {
+  color: transparent;
+  padding: 0px 5px;
+}
+#tags button.occupied {
+  color: #7f849c;
+}
+#tags button:hover {
+  color: rgba(205, 214, 244, 0.9);
+  background-color: transparent;
+  border-color: transparent;
+  border-radius: 0px;
+  box-shadow: none;
+  border-bottom: 1px solid #89b4fa;
+  transition: ease-in 300ms;
+}
+#tags button.focused {
+  color: #89b4fa;
+}
+#tags button.urgent {
+  color: #f38ba8;
+}
+
+#custom-task-id {
+  padding: 4px 15px;
+  color: #7f849c;
+}
+
+#custom-task-due {
+  padding: 4px 15px;
+  color: #7f849c;
+}
+#custom-task-due.distant-due {
+  color: #b4befe;
+}
+#custom-task-due.upcoming-due {
+  color: #f9e2af;
+}
+#custom-task-due.close-due {
+  color: #fab387;
+}
+#custom-task-due.overdue {
+  color: #f38ba8;
+}
+
+#custom-task-desc {
+  padding: 4px 15px;
+  color: #89b4fa;
+}
+#custom-task-desc.started {
+  color: #a6e3a1;
+}
+
+#clock {
+  padding: 4px 15px;
+  color: rgba(205, 214, 244, 0.9);
+}
+#clock.day {
+  border-left: 1px solid rgba(127, 132, 156, 0.5);
+}
+#clock.date {
+  border-right: 1px solid rgba(127, 132, 156, 0.5);
+}
+
+#tray {
+  padding: 4px 15px;
+  color: #7f849c;
+  border-left: 1px solid rgba(127, 132, 156, 0.5);
+}
+
+#pulseaudio {
+  padding: 4px 15px;
+  color: #7f849c;
+  border-left: 1px solid rgba(127, 132, 156, 0.5);
+}
+#pulseaudio.mild {
+  color: #f9e2af;
+}
+#pulseaudio.heavy {
+  color: #fab387;
+}
+
+#network {
+  padding: 4px 15px;
+  color: #7f849c;
+}
+#network.disconnected {
+  color: #f9e2af;
+}
+#networkdisabled {
+  color: #fab387;
+}
+
+#backlight {
+  padding: 4px 15px;
+  color: #7f849c;
+  border-left: 1px solid rgba(127, 132, 156, 0.5);
+}
+#backlight.mild {
+  color: #f9e2af;
+}
+#backlight.heavy {
+  color: #fab387;
+}
+
+#battery {
+  padding: 4px 15px;
+  color: #7f849c;
+  border-left: 1px solid rgba(127, 132, 156, 0.5);
+}
+#battery.discharging.state-good {
+  color: #f9e2af;
+}
+#battery.discharging.state-warning {
+  color: #fab387;
+}
+#battery.discharging.state-critical {
+  color: #f38ba8;
+}
+#battery.charging {
+  color: #a6e3a1;
+}
+
+#cpu {
+  padding: 4px 15px;
+  color: #7f849c;
+}
+#cpu.mild {
+  color: #f9e2af;
+}
+#cpu.heavy {
+  color: #fab387;
+}
+
+#memory {
+  padding: 4px 15px;
+  color: #7f849c;
+  border-left: 1px solid rgba(127, 132, 156, 0.5);
+}
+#memory.mild {
+  color: #f9e2af;
+}
+#memory.heavy {
+  color: #fab387;
+}
+
+#disk.ssd {
+  padding: 4px 15px;
+  color: #7f849c;
+  border-left: 1px solid rgba(127, 132, 156, 0.5);
+}
+#disk.hdd {
+  padding: 4px 15px;
+  color: #7f849c;
+  border-left: 1px solid rgba(127, 132, 156, 0.5);
+}
+
+#custom-game-mode {
+  padding: 4px 15px;
+  color: #7f849c;
+}/*# sourceMappingURL=style.css.map */
