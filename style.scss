@@ -1,27 +1,30 @@
-@use "catppuccin_mocha" as colors;
+@use 'base16';
 
 $fg: rgba(
-    $color: colors.$foreground,
+    $color: base16.$base05,
     $alpha: 0.9,
 );
 $bg: rgba(
-    $color: colors.$background-darker,
+    $color: base16.$base01,
     $alpha: 0.7,
 );
-$accent: colors.$blue;
+
+$accent: base16.$base0D;
+$dim: base16.$base04;
+
 $border-color: rgba(
-    $color: colors.$comment,
+    $color: $dim,
     $alpha: 0.5,
 );
 /*
 @keyframes rainbow {
-    0%   {color: colors.$red;}
-    16%  {color: colors.$orange;}
-    33%  {color: colors.$yellow;}
-    50% {color: colors.$green;}
-    66% {color: colors.$cyan;}
-    83% {color: colors.$purple;}
-    100% {color: colors.$pink;}
+    0%   {color: base16.$base08;}
+    16%  {color: base16.$base09;}
+    33%  {color: base16.$base0A;}
+    50% {color: base16.$base0B;}
+    66% {color: base16.$base0C;}
+    83% {color: base16.$base0D;}
+    100% {color: base16.$base0E;}
 }
 */
 * {
@@ -34,7 +37,7 @@ window {
 }
 
 @mixin default-settings(
-    $color: colors.$comment,
+    $color: $dim,
     $border-side: none,
     $border-color: $border-color,
     $border-size: 1px
@@ -69,7 +72,7 @@ window {
         padding: 0px 5px;
 
         &.occupied {
-            color: colors.$comment;
+            color: $dim;
         }
 
         &:hover {
@@ -90,32 +93,32 @@ window {
         }
 
         &.urgent {
-            color: colors.$red;
+            color: base16.$base08;
         }
     }
 }
 
 #custom-task-id {
-    @include default-settings($color: colors.$comment);
+    @include default-settings($color: $dim);
 }
 
 #custom-task-due {
-    @include default-settings($color: colors.$comment);
+    @include default-settings($color: $dim);
 
     &.distant-due {
-        color: colors.$lavender;
+        color: base16.$base07;
     }
 
     &.upcoming-due {
-        color: colors.$yellow;
+        color: base16.$base0A;
     }
 
     &.close-due {
-        color: colors.$orange;
+        color: base16.$base09;
     }
 
     &.overdue {
-        color: colors.$red;
+        color: base16.$base08;
     }
 }
 
@@ -123,7 +126,7 @@ window {
     @include default-settings($color: $accent);
 
     &.started {
-        color: colors.$green;
+        color: base16.$base0B;
     }
 }
 
@@ -147,11 +150,11 @@ window {
     @include default-settings($border-side: "left");
 
     &.mild {
-        color: colors.$yellow;
+        color: base16.$base0A;
     }
 
     &.heavy {
-        color: colors.$orange;
+        color: base16.$base09;
     }
 }
 
@@ -159,11 +162,11 @@ window {
     @include default-settings();
 
     &.disconnected {
-        color: colors.$yellow;
+        color: base16.$base0A;
     }
 
     &disabled {
-        color: colors.$orange;
+        color: base16.$base09;
     }
 }
 
@@ -171,11 +174,11 @@ window {
     @include default-settings($border-side: "left");
 
     &.mild {
-        color: colors.$yellow;
+        color: base16.$base0A;
     }
 
     &.heavy {
-        color: colors.$orange;
+        color: base16.$base09;
     }
 }
 
@@ -184,18 +187,18 @@ window {
 
     &.discharging {
         &.state-good {
-            color: colors.$yellow;
+            color: base16.$base0A;
         }
         &.state-warning {
-            color: colors.$orange;
+            color: base16.$base09;
         }
         &.state-critical {
-            color: colors.$red;
+            color: base16.$base08;
         }
     }
 
     &.charging {
-        color: colors.$green;
+        color: base16.$base0B;
     }
 }
 
@@ -203,11 +206,11 @@ window {
     @include default-settings();
 
     &.mild {
-        color: colors.$yellow;
+        color: base16.$base0A;
     }
 
     &.heavy {
-        color: colors.$orange;
+        color: base16.$base09;
     }
 }
 
@@ -215,11 +218,11 @@ window {
     @include default-settings($border-side: "left");
 
     &.mild {
-        color: colors.$yellow;
+        color: base16.$base0A;
     }
 
     &.heavy {
-        color: colors.$orange;
+        color: base16.$base09;
     }
 }
 
